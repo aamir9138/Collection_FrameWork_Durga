@@ -2,7 +2,7 @@
 
 ### Collection
 
-!["Collection"]("./pictures/Collection.PNG")
+!["Collection"](./pictures/Collection.PNG)
 
 ### Collection Framework
 
