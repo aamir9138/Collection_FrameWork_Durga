@@ -400,3 +400,126 @@ class IteratorDemo{
 !["list iterator creation"](./pictures/listiterator_creation.PNG)
 
 !["list iterator methods"](./pictures/listiterator_methods.PNG)
+
+A simple program on ListIterator is as under
+
+```
+import java.util.*;
+class ListIteratorDemo{
+  public static void main(String[] args){
+    LinkedList l = new LinkedList();
+    l.add("Aamir");
+    l.add("idrees");
+    l.add("wisal");
+    l.add("Afzal");
+    System.out.println(l); // [Aamir, idrees, wisal, Afzal]
+    ListIterator Itr = l.listIterator();
+    while(Itr.hasNext()){
+      String s = (String)Itr.next();
+      if(s.equals("wisal")){
+        Itr.set("sohail");
+      }
+      else if(s.equals("idrees")){
+        Itr.add("shakeel");
+      }
+      else if(s.equals("Aamir")){
+        Itr.remove();
+      }
+    }
+    System.out.println(l); // [idrees, shakeel, sohail, Afzal]
+  }
+}
+```
+
+### Note
+
+ListIterator is the most powerful cursor but its limitation is, it is applicable only for list implemented class objects and it is not a universal cursor.
+
+## Comparison of the three Cursors
+
+!["comparison of cursors"](./pictures/three_cursor_comparison.PNG)
+
+## Classes of the three Cursors of Java
+
+```
+import java.util.*;
+class CursorsDemo{
+  public static void main(String [] args){
+    Vector v = new Vector();
+    Enumeration e = v.elements();
+    Iterator itr = v.iterator();
+    ListIterator litr = v.listIterator();
+    System.out.println(e.getClass().getName()); // java.util.Vector$1 $ sign represent inner classes
+    System.out.println(itr.getClass().getName()); // java.util.Vector$Itr
+    System.out.println(litr.getClass().getName()); // java.util.Vector$ListItr
+  }
+}
+```
+
+so what is happening actually inside the Vector we are having methods like `elements, iterator, listIterator` inside which we have inner classes which are returning an Object of this class.
+
+## HashSet
+
+!["Set_interface"](./pictures/Set_Interface.PNG)
+
+!["Set"](./pictures/Sett.PNG)
+
+!["Hash Set"](./pictures/Hashset.PNG)
+
+!["Hash set constructors"](./pictures/hashset_constructors.PNG)
+
+!["fill ratio"](./pictures/fill_ration.PNG)
+
+a simple program
+
+```
+import java.util.*;
+class HashSetDemo{
+  public static void main(String [] args){
+    HashSet h = new HashSet();
+    h.add("B");
+    h.add("C");
+    h.add("D");
+    h.add("Z");
+    h.add(null);
+    h.add(10);
+    System.out.println(h.add("Z")); // false
+    System.out.println(h); // [null, B, C, D, Z, 10]
+  }
+}
+```
+
+## LinkedHashSet
+
+major important difference with hashset is as below.
+
+!["LinkedHashSet"](./pictures/LinkedHashSet.PNG)
+
+```
+import java.util.*;
+class LinkedHashSetDemo{
+  public static void main(String [] args){
+    LinkedHashSet h = new LinkedHashSet();
+    h.add("B");
+    h.add("C");
+    h.add("D");
+    h.add("Z");
+    h.add(null);
+    h.add(10);
+    System.out.println(h.add("Z")); // false
+    System.out.println(h); // [B, C, D, Z, null, 10] insertion order is preserved
+  }
+}
+```
+
+!["linked hash set note"](./pictures/linkedhashset_note.PNG)
+
+## SortedSet details
+
+!["sorted set"](./pictures/sortedset.PNG)
+
+### SortedSet Specific methods
+
+!["sorted set methods"](./pictures/sortedset_methods.PNG)
+
+!["sorted set methods example"](./pictures/sortedset_methods_example.PNG)
